@@ -1,0 +1,254 @@
+:root {
+  --bg: #050816;
+  --primary: #915eff;
+  --text: #ffffff;
+  --glass: rgba(255, 255, 255, 0.05);
+  --secondary: #aaa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* Navbar */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(5, 8, 22, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.logo span {
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+.nav-links li {
+  margin-left: 30px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.nav-links a:hover,
+.resume-link {
+  color: var(--primary);
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10%;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+}
+.hero-content span {
+  color: var(--primary);
+}
+.hero-content p {
+  color: var(--secondary);
+  margin-bottom: 25px;
+  max-width: 500px;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.social-links a {
+  font-size: 1.5rem;
+  color: var(--secondary);
+  margin-right: 20px;
+  transition: 0.3s;
+}
+.social-links a:hover {
+  color: var(--primary);
+  transform: translateY(-5px);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 25px;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: 0.3s;
+  border: 1px solid var(--primary);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--primary);
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(145, 94, 255, 0.4);
+}
+
+/* Image */
+.hero-image {
+  position: relative;
+}
+.hero-image img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--glass);
+  animation: float 4s infinite ease-in-out;
+}
+.image-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--primary);
+  filter: blur(80px);
+  opacity: 0.2;
+  z-index: -1;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Common Sections */
+section {
+  padding: 100px 10%;
+}
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 60px;
+}
+h2 span {
+  border-bottom: 3px solid var(--primary);
+}
+
+.card {
+  background: var(--glass);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: 0.3s;
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+.skill-tag {
+  padding: 8px 20px;
+  background: var(--glass);
+  border-radius: 20px;
+  border: 1px solid rgba(145, 94, 255, 0.3);
+}
+
+/* Resume Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(5, 8, 22, 0.95);
+  backdrop-filter: blur(10px);
+}
+.modal-content {
+  background: #0d1117;
+  margin: 5% auto;
+  padding: 40px;
+  width: 80%;
+  max-width: 700px;
+  border-radius: 20px;
+  border: 1px solid var(--primary);
+  position: relative;
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.modal.active .modal-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.close-modal {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.resume-img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+/* Cursor */
+#cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: transform 0.1s;
+}
+
+footer {
+  text-align: center;
+  padding: 40px;
+  border-top: 1px solid var(--glass);
+  color: #666;
+}
